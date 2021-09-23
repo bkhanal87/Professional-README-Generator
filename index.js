@@ -1,5 +1,6 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
+const { title } = require("process");
 
 inquirer
   .prompt([
@@ -76,7 +77,6 @@ inquirer
       message: "Enter your email address with instruction on how to reach you with additional questions.",
     },
 
-    // Table of Contents: Taken to the corresponding section of the README
   ]).then(answers => {
 
     let {
@@ -91,5 +91,84 @@ inquirer
         userEmail
     } = answers;
 
+    let questionContent = (gitHubuserName || userEmail) && (gitHubuserName.length + userEmail.length);
+
+    let text = `${userTitle&&userTitle.length?title + "\n===\n":""}
+
+${license&&license.length?licenser.getBadge(license)+ "\n":""}
+${userDescription&&userDescription.length?"Description\n---\n"+userDescription:""}
+
+
+
+
+
+// Table of Contents: Taken to the corresponding section of the README
+
+${installation&&installation.length?"Installation\n---\n"+installation:""}
+
+${usage&&usage.length?"Usage\n---\n"+usage:""}
+
+${license&&license.length?"License\n---\n"+licenser.getText(license):""}
+
+${contributing&&contributing.length?"Contributing\n---\n"+contributing:""}
+
+${tests&tests.length?"Tests\n--\n"+tests:""}
+
+${ questionContent?"Questions\n---\n":""}
+
+${ gitHubUserName&&gitHubuserName.length?"-What is your gitHub username?\n\t- It is:"+gitHubuserName+"\n":"" }
+${ userEmail&userEmail.length?"\n- How can we reach you with additional questions?\n\t- You can reach me with additional questions at <a href='mailto:"+userEmail+"</a>.\n":""}`;
+
+text = text.replace(/\n\n\n/gm, "\n");
+
+text = addTableOfCotents(text, userDescription, installation, usage, license, contributing, tests, questionContent);
+
+const fileName = "Professional-README.md";
+fs.writeFileSync(fileName, text);
+
+console.group("README Generator");
+console.log(`written to ${fileName}:\n${text}`);
+console.groupEnd();
+
+  }).catch(err => {
+      console.log("Error: ", err);
   });
+
+  function addTableOfCotents(text, userDescription, installation, usage, license, contributing, tests, questionContent){
+      let toc = "";
+
+      if (userDescription && userDescription.length)
+        toc += "- [Description] (#description)\n";
+      if ( installation&& installation.length)
+        toc += "- [Installation] (#installation)\n";
+      if (userDescription && userDescription.length)
+        toc += "- [Description] (#description)\n";
+      if (userDescription && userDescription.length)
+        toc += "- [Description] (#description)\n";
+      if (userDescription && userDescription.length)
+        toc += "- [Description] (#description)\n";
+      if (userDescription && userDescription.length)
+        toc += "- [Description] (#description)\n";
+      if (userDescription && userDescription.length)
+        toc += "- [Description] (#description)\n";
+      
+    
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
 
