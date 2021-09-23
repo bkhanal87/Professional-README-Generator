@@ -50,7 +50,7 @@ inquirer.prompt([
 
     {
         name: "tests",
-        message: ""
+        message: "Provide tests information (if any)"
 
     },
 
