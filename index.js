@@ -141,16 +141,21 @@ console.groupEnd();
         toc += "- [Description] (#description)\n";
       if ( installation&& installation.length)
         toc += "- [Installation] (#installation)\n";
-      if (userDescription && userDescription.length)
-        toc += "- [Description] (#description)\n";
-      if (userDescription && userDescription.length)
-        toc += "- [Description] (#description)\n";
-      if (userDescription && userDescription.length)
-        toc += "- [Description] (#description)\n";
-      if (userDescription && userDescription.length)
-        toc += "- [Description] (#description)\n";
-      if (userDescription && userDescription.length)
-        toc += "- [Description] (#description)\n";
+      if (usage && usage.length)
+        toc += "- [Usage] (#usage)\n";
+      if (license && license.length)
+        toc += "- [License] (#license)\n";
+      if (contributing && contributing.length)
+        toc += "- [Contributing] (#contributing)\n";
+      if (tests && tests.length)
+        toc += "- [Tests] (#tests)\n";
+      if (questionContent && questionContent.length)
+        toc += "- [Questions] (#questions)\n";
+
+      if (toc.length) toc = "Table of Contents\n---\n" + toc;
+      text = text.replace(/__TOC__/, toc);
+
+      return text;
       
     
   }
