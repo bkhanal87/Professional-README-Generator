@@ -1,15 +1,13 @@
 const fs = require("fs");
 const inquirer = require("inquirer");
 
-inquirer.prompt([
-
+inquirer
+  .prompt([
     // title of the project
 
     {
-
-        name: "title",
-        message: "Enter title of the project."
-
+      name: "userTitle",
+      message: "Enter title of the project.",
     },
 
     // sections
@@ -17,95 +15,81 @@ inquirer.prompt([
     // Description
 
     {
-        name: "description",
-        message:"Enter description of the project."
-
+      name: "userDescription",
+      message: "Enter description of the project.",
     },
 
     // Installation
 
     {
-        name: "installation instructions",
-        message: "Provide instructions on how to install (if applicable)."
-
+      name: "installation",
+      message: "Provide instructions on how to install (if applicable).",
     },
-
 
     // Usage Information
 
     {
-        name: "usage information",
-        message: "Enter usage information for your project."
+      name: "usage",
+      message: "Enter usage information for your project.",
     },
 
     // Contribution
 
     {
-        name: "contributors",
-        message: "Inform how other developers can contribute to your project, what the guidelines are, limitations, any rules, etc."
-
-
+      name: "contributing",
+      message: "Inform how other developers can contribute to your project, what the guidelines are, limitations, any rules, etc.",
     },
 
     // Tests
 
     {
-        name: "tests",
-        message: "Provide information on how to run the project"
-
+      name: "tests",
+      message: "Provide information on how to run the project",
     },
-
 
     // license Information
 
     {
-        type: "list",
-        message: "Pick the license number you are using for your project:",
-        name:"license",
-        choices: ["ISC", "MIT" , "Apache License 2.0", "The Unlicense", "Mozilla Public License 2.0"]
+      name: "license",
+      choices: [
+        "ISC",
+        "MIT",
+        "Apache License 2.0",
+        "The Unlicense",
+        "Mozilla Public License 2.0",
+      ],
+      type: "list",
     },
 
-
-    // Questions : Github username added with a link to GitHub profile, 
-
-    {
-        type: "input",
-        message: "What is your GitHub username?",
-        name: "username",
-        default: bkhanal87,
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("A valid GitHub username is required.");
-            }
-            return true;
-        }
-   },
-
-
-    // Questions: Email address added with instruction on how to reach me with additional questions, 
+    // Questions : Github username added with a link to GitHub profile,
 
     {
-        type: "input",
-        message: "What is your email address if I need to reach you with additional questions?",
-        name: "email",
-        default: bkhanal87,
-        validate: function (answer) {
-            if (answer.length < 1) {
-                return console.log("A valid GitHub username is required.");
-            }
-            return true;
-        }
-
+      name: "gitHubuserName",
+      message: "Enter your gitHub username"
+    
     },
 
+    // Questions: Email address added with instruction on how to reach me with additional questions,
 
+    {
+      name: "userEmail",
+      message: "Enter your email address with instruction on how to reach you with additional questions.",
+    },
 
     // Table of Contents: Taken to the corresponding section of the README
+  ]).then(answers => {
 
+    let {
+        userTitle,
+        userDescription,
+        installation,
+        usage,
+        license,
+        contributing,
+        tests,
+        gitHubuserName,
+        userEmail
+    } = answers;
 
+  });
 
-
-
-
-
-])
