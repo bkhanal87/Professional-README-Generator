@@ -7,28 +7,53 @@ inquirer.prompt([
 
     {
         name: "title",
-        message: "what is the title of your project?"
+        message: "title of the project"
 
     },
 
     // sections
 
-    //Description
+    // Description
 
     {
-        name: "",
-        message:
+        name: "description",
+        message:"enter description of the project"
 
-    }
+    },
 
     // Installation
 
+    {
+        name: "installation instructions",
+        message: "provide instructions on how to install (if any)"
 
-    // Usage
+    },
+
+
+    // Usage Information
+
+    {
+        name: "usage information",
+        message: "Enter usage information (if any)"
+    },
 
     // Contribution
 
+    {
+        name: "contributors",
+        message: "Enter contributor information (if any)"
+
+
+    },
+
     // Tests
+
+    {
+        name: "tests",
+        message: ""
+
+    },
+
 
     // license Information
 
