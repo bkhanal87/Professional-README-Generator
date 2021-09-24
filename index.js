@@ -53,14 +53,27 @@ inquirer
     {
       name: "license",
       choices: [
-        "ISC",
-        "MIT",
-        "Apache License 2.0",
-        "The Unlicense",
-        "Mozilla Public License 2.0",
+        new inquirer.Separator(),
+        "apache2", "bsd2", "bsd3",
+        new inquirer.Separator(),
+        "cc1", "cc4-international", "cc4-sharealike",
+        new inquirer.Separator(),
+        "MIT", "Unlicense"
       ],
-      type: "list",
+      type: "list"
     },
+
+    // {
+    //   name: "license",
+    //   choices: [
+    //     "ISC",
+    //     "MIT",
+    //     "Apache License 2.0",
+    //     "The Unlicense",
+    //     "Mozilla Public License 2.0",
+    //   ],
+    //   type: "list",
+    // },
 
     // Questions : Github username added with a link to GitHub profile,
 
@@ -134,7 +147,7 @@ console.groupEnd();
       console.log("Error: ", err);
   });
 
-  function addTableOfCotents(text, userDescription, installation, usage, license, contributing, tests, questionContent){
+function addTableOfCotents(text, userDescription, installation, usage, license, contributing, tests, questionContent){
       let toc = "";
 
       if (userDescription && userDescription.length)
@@ -156,9 +169,81 @@ console.groupEnd();
       text = text.replace(/__TOC__/, toc);
 
       return text;
+}
+
+let licenser = {
+  getText: (license) => {
+    switch (license) {
+      case "apache2":
+        return "[Apache 2.0](https://opensource.org/licenses/Apache-2.0)";
+        break;
+      case "bsd2":
+        return "[BSD2](https://opensource.org/licenses/BSD-2-Clause)";
+        break;
+      case "bsd3":
+        return "[BSD3](https://opensource.org/licenses/BSD-3-Clause)";
+        break;
+
+
+      case "cc1":
+        return "[CC 1.0 License](http://creativecommons.org/publicdomain/zero/1.0/)";
+        break;
+      case "cc4-international":
+        return "[CC 4.0 International](https://creativecommons.org/licenses/by/4.0/)";
+        break;
+      case "cc4-sharealike":
+        return "[CC 4.0 Share Alike](https://creativecommons.org/licenses/by-sa/4.0/)";
+        break;
+
+      case "MIT": 
+        return "[MIT License](https://opensource.org/license/MIT)";
+        break;
+      case "Unlicense":
+        return "[Unlicense](http://unlicense.org/)";
+        break
+
+      default:
+        return "error-license-link-not-found";
       
-    
-  }
+    }
+  },
+  getBadge: (license) => {
+    switch (license) {
+      case "apache2":
+        return "[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)";
+        break;
+      case "bsd2":
+        return "[![License](https://img.shields.io/badge/License-BSD%202--Clause-orange.svg)](https://opensource.org/licenses/BSD-2-Clause)";
+        break;
+      case "bsd3":
+        return "[![License](https://img.shields.io/badge/License-BSD%203--Clause-blue.svg)](https://opensource.org/licenses/BSD-3-Clause)";
+        break;
+
+
+      case "cc1":
+        return "[![License: CCO-1.0](https://img.shields.io/badge/License-CCO%201.0-lightgrey.svg)](http://creativecommons.org/publicdomain/zero/1.0/)";
+        break;
+      case "cc4-international":
+        return "[![License: CC BY 4.0](https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by/4.0/)";
+        break;
+      case "cc4-sharealike":
+        return "[![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](https://creativecommons.org/licenses/by-sa/4.0/)";
+        break;
+
+      case "MIT": 
+        return "[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/license/MIT)";
+        break;
+      case "Unlicense":
+        return "[![License: Unlicense](https://img.shields.io/badge/license-Unlicense-blue.svg)](http://unlicense.org/)";
+        break
+
+      default:
+        return "error-license-link-not-found";
+      
+    }
+  },
+}
+
 
 
 
