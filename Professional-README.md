@@ -5,7 +5,7 @@
 
 Description
 ---
-Creating a README file by using a command-line application 
+a Readme Generator for a new project
 
 Table of Contents
 ---
@@ -19,11 +19,11 @@ Table of Contents
 
 Installation
 ---
-User will need to clone the README repo to their local computer to start using it. Inquirer, the npm package, needs to be downloaded and a index.js file created to start the project
+clone the repo to your local computer. install inquirer package from npm website
 
 Usage
 ---
-This README generator will enable user to create a professional README file to use with his project
+none
 
 License
 ---
@@ -31,15 +31,16 @@ License
 
 Contributing
 ---
-Follow gitHub guidelines, adhere to coding standards
+none
 
 Tests
 ---
-none
+see descriptions above
 
 Questions
 ---
 
--What is your GitHub username?
-	- It is:bkhanal87
-
+- What is your GitHub username?
+	- It is:abc879
+- How can we reach you with additional questions?
+	- You can reach me with additional questions via email at <a href='mailto:abc@yahoo.com'>abc@yahoo.com</a>

@@ -55,7 +55,7 @@ inquirer
 
     {
       name: "userEmail",
-      message: "Enter your email address with instruction on how to reach you with additional questions.",
+      message: "Enter your email address with instruction on how to reach you with additional questions",
     },
 
   ]).then(answers => {
@@ -91,8 +91,8 @@ ${contributing&&contributing.length?"Contributing\n---\n"+contributing:""}
 ${tests&&tests.length?"Tests\n---\n"+tests:""}
 
 ${ questionContent?"Questions\n---\n":""}
-${ gitHubuserName&&gitHubuserName.length?"-What is your GitHub username?\n\t- It is:"+gitHubuserName+"\n":"" }
-${ userEmail&userEmail.length?"\n- How can we reach you with additional questions?\n\t- You can reach me with additional questions via email at <a href='mailto:"+userEmail+"</a>.\n":""}`;
+${ gitHubuserName&&gitHubuserName.length?"- What is your GitHub username?\n\t- It is:"+gitHubuserName+"\n":"" }
+${ userEmail&&userEmail.length?"\n- How can we reach you with additional questions?\n\t- You can reach me with additional questions via email at <a href='mailto:"+userEmail+"'>"+userEmail+"</a>\n":"" }`;
 
 text = text.replace(/\n\n\n/gm, "\n");
 
